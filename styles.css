@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;              /*https://www.geeksforgeeks.org/css-box-sizing-property/.*/
+}
+
+.container
+{
+    width: 100%;             /*container ka size is 100% of the border box defined previously*/
+    min-height: 100vh;
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding: 10px;
+}
+
+.todo-app
+{
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todo-app h2
+{
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.todo-app h2 img
+{
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input
+{
+    flex: 1;
+    border: none;         
+    outline: none;      /*upar k dono none karne se by default joh border vagera aate hai to an input box they disappear*/
+    background: transparent;      /*background transparent karne se the color of box matches with color of row */
+    padding: 10px;     /*for all sides*/
+    font-weight: 14px;
+}
+
+button
+{
+    border: none;         
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+ul li
+{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;           /*The user-select CSS property controls whether the user can select text.*/
+    cursor: pointer;
+    position: relative;   /********confused******/
+}
+
+ul li::before
+{
+    content: '';
+    position: absolute;  /********confused******/
+    /* The element is removed from the normal document flow, and no space is created for the element in the page layout.
+    The element is positioned relative to its closest positioned ancestor (if any) or to the initial containing block.*/
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png);        /*used to add on image to the project*/
+    background-size: cover;           /*this increases/decreases the size of our image while maintaning the size-ratio and no white spaces*/
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked
+{
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before
+{
+    background-image: url(images/checked.png);
+}
+
+ul li span              /*yaha pr humne humare 'x' sign ko customize kiya*/
+{
+    position: absolute;       /*yaha relative krke dekho you will get ot know the difference between rel and abs*/
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span:hover
+{
+    background: #edeef0;
+}
